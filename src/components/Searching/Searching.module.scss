@@ -48,8 +48,11 @@
 
 .photosBlock {
     display: grid;
-    grid-template-columns: repeat(5, 204.17px);
-    grid-template-rows: 204px;
+    grid-template-columns: repeat(6, 204.17px);
+    grid-template-rows:
+  minmax(204px, max-content)
+  repeat(auto-fill, 204px) 20%;
+    // grid-template-rows: repeat(204px);
     width: 1425px;
     height: 1090px;
     top: 104px;

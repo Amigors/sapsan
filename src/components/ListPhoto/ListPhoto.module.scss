@@ -1,9 +1,17 @@
 .photoBlock {
     width: 204.17px;
     height: 204px;
+    position: relative;
+    cursor: pointer;
 }
 
 .photo {
     width: 204.17px;
     height: 204px;
+}
+
+.photoModal {
+    width: 767.47px;
+    height: 760px;
+    opacity: 100%;
 }
