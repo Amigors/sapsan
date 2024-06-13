@@ -1,4 +1,5 @@
 .searchBlock {
+    position: sticky;
     width: 1425px;
     height: 104px;
     padding: 16px 80px;
@@ -105,10 +106,9 @@
     color: #787878;
 }
 
-@media screen and (max-width: 480px) and (min-width: 375px) {
+@media screen and (max-width: 480px) {
     .searchBlock {
-        position: fixed;
-        z-index: 10;
+        position: sticky;
         width: 375px;
         height: 118px;
         padding: 16px;
@@ -136,14 +136,13 @@
         height: 48px;
         border-radius: 12px;
         padding: 12px 8px;
-        gap: 4px;
         background-color: #eeeeee;
     }
 
     .searchBlock__inputField {
         display: flex;
         border: none;
-        width: 206px;
+        width: 200px;
         font-family: Arial;
         font-weight: 400;
         font-size: 16px;
