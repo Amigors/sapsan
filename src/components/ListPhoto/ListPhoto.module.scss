@@ -27,7 +27,6 @@
 }
 
 .closeButton {
-    z-index: 1;
     position: fixed;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.3);
@@ -40,7 +39,7 @@
 }
 
 
-@media screen and (max-width: 480px) and (min-width: 375px) {
+@media screen and (max-width: 480px) {
     .photoBlock {
         width: 114px;
         height: 114px;
@@ -63,7 +62,7 @@
     }
 
     .photoModalBlock {
-        position: absolute;
+        position: relative;
         display: flex;
         top: 0px;
         left: 0px;
@@ -72,7 +71,6 @@
     }
 
     .closeButton {
-        z-index: 1;
         position: fixed;
         cursor: pointer;
         color: rgba(0, 0, 0, 0.3);

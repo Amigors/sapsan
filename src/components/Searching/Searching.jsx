@@ -10,21 +10,35 @@ import { IoMdCloseCircle } from "react-icons/io";
 
 const Searching = () => {
     const [images, setImages] = useState([]);
-    const [total, setTotal] = useState(null);
+    const [total, setTotal] = useState(0);
+    const [totalPages, setTotalPages] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
     const [isFetched, setIsFetched] = useState(false);
     const [showInputClose, setShowInputClose] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [requestCount, setRequestCount] = useState(0);
+    const maxRequests = 1;
     const ref = useRef(null);
 
     const fetchData = useCallback(async () => {
+        if (requestCount >= maxRequests) {
+            setIsLoading(false)
+            return;
+        }
         setIsLoading(true);
         try {
             const response = await axios.get(`${url}${ref.current.value}&page=${currentPage}`);
+            if (response.data.total_pages < 1) {
+                setIsLoading(false)
+                return;
+            }
             setTotal(response.data.total);
+            setTotalPages(response.data.total_pages)
             setImages(prevImages => [...prevImages, ...response.data.results]);
             setCurrentPage(currentPage + 1);
         } catch (error) {
+            setRequestCount(requestCount + 1);
+            setIsLoading(false);
             console.error(error.message);
         } finally {
             setIsLoading(false);
@@ -33,7 +47,7 @@ const Searching = () => {
 
     const [scrollRef] = useInfiniteScroll({
         loading: isLoading,
-        hasNextPage: currentPage <= total,
+        hasNextPage: currentPage <= totalPages,
         onLoadMore: fetchData,
         disabled: !isFetched,
     })
@@ -42,6 +56,7 @@ const Searching = () => {
         setIsFetched(true);
         setImages([]);
         setCurrentPage(1);
+        setRequestCount(0)
         fetchData();
     };
 
@@ -87,7 +102,7 @@ const Searching = () => {
                     <ListPhoto image={image} key={index} />
                 ))}
                 {isLoading && <Oval />}
-                {!isLoading && total === 0 && <div className={style.emptyFetch}>К сожалению поиск не дал результатов</div>}
+                {!isLoading && isFetched && total === 0 && <div className={style.emptyFetch}>К сожалению поиск не дал результатов</div>}
             </div>
         </>
     );
