@@ -1,116 +1,119 @@
-.searchBlock {
-    position: sticky;
-    top: 0;
-    width: 1425px;
-    height: 104px;
-    padding: 16px 80px;
-    gap: 8px;
-    display: flex;
-    flex-direction: row;
+@media screen and (min-width: 480px) {
+    .searchBlock {
+        position: sticky;
+        top: 0;
+        width: 100vw;
+        padding: 16px 80px;
+        gap: 8px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .searchBlock__empty {
+        width: 100vw;
+        height: 304px;
+        padding: 16px 80px;
+        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: end;
+    }
+
+    .searchBlock__input {
+        display: flex;
+        width: 420px;
+        height: 48px;
+        border-radius: 12px;
+        padding: 12px 8px;
+        background-color: #eeeeee;
+    }
+
+    .searchBlock__inputField {
+        display: flex;
+        border: none;
+        font-family: Arial;
+        width: 360px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18.4px;
+        align-items: center;
+        outline: none;
+        background-color: #eeeeee;
+    }
+
+    .searchBlock__searchIcon {
+        position: relative;
+        width: 20px;
+        height: 19px;
+        top: 3px;
+        left: 2px;
+        color: #C4C4C4;
+    }
+
+    .searchBlock__closeIcon {
+        position: relative;
+        width: 19px;
+        height: 19px;
+        top: 3px;
+        left: 2px;
+        display: flex;
+        color: #C4C4C4;
+        cursor: pointer;
+    }
+
+    .searchBlock__button {
+        width: 84px;
+        height: 48px;
+        border-radius: 12px;
+        padding: 14px 16px;
+        gap: 10px;
+        background-color: #EB0C0C;
+        color: #ffffff;
+    }
+
+    .searchBlock__button:hover {
+        background-color: #C30000
+    }
+
+    .searchBlock__buttonText {
+        font-family: Arial;
+        font-weight: 400;
+        line-height: 18.4px;
+        size: 16px;
+        align-items: center;
+    }
+
+    .photosBlock {
+        display: grid;
+        z-index: -1;
+        grid-template-columns: repeat(auto-fill, 204.17px);
+        grid-template-rows: minmax(204px, max-content) repeat(auto-fill, 204px) 20%;
+        width: 100vw;
+        height: 1090px;
+        top: 104px;
+        padding: 16px 80px;
+        gap: 8px;
+    }
+
+    .emptyFetch {
+        width: 297px;
+        height: 18px;
+        top: 40px;
+        left: 80px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18.4px;
+        color: #787878;
+    }
 }
 
-.searchBlock__empty {
-    width: 1425px;
-    height: 304px;
-    padding: 16px 80px;
-    gap: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: end;
-}
 
-.searchBlock__input {
-    display: flex;
-    width: 420px;
-    height: 48px;
-    border-radius: 12px;
-    padding: 12px 8px;
-    background-color: #eeeeee;
-}
-
-.searchBlock__inputField {
-    display: flex;
-    border: none;
-    font-family: Arial;
-    width: 360px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18.4px;
-    align-items: center;
-    outline: none;
-    background-color: #eeeeee;
-}
-
-.searchBlock__searchIcon {
-    position: relative;
-    width: 20px;
-    height: 19px;
-    top: 3px;
-    left: 2px;
-    color: #C4C4C4;
-}
-
-.searchBlock__closeIcon {
-    position: relative;
-    width: 19px;
-    height: 19px;
-    top: 3px;
-    left: 2px;
-    display: flex;
-    color: #C4C4C4;
-    cursor: pointer;
-}
-
-.searchBlock__button {
-    width: 84px;
-    height: 48px;
-    border-radius: 12px;
-    padding: 14px 16px;
-    gap: 10px;
-    background-color: #EB0C0C;
-    color: #ffffff;
-}
-
-.searchBlock__button:hover {
-    background-color: #C30000
-}
-
-.searchBlock__buttonText {
-    font-family: Arial;
-    font-weight: 400;
-    line-height: 18.4px;
-    size: 16px;
-    align-items: center;
-}
-
-.photosBlock {
-    display: grid;
-    z-index: -1;
-    grid-template-columns: repeat(6, 204.17px);
-    grid-template-rows: minmax(204px, max-content) repeat(auto-fill, 204px) 20%;
-    width: 1425px;
-    height: 1090px;
-    top: 104px;
-    padding: 16px 80px;
-    gap: 8px;
-}
-
-.emptyFetch {
-    width: 297px;
-    height: 18px;
-    top: 40px;
-    left: 80px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18.4px;
-    color: #787878;
-}
 
 @media screen and (max-width: 480px) {
     .searchBlock {
-        position: sticky;
+        position: relative;
         top: 0;
         width: 375px;
         height: 118px;

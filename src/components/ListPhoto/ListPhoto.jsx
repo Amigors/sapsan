@@ -17,17 +17,19 @@ const ListPhoto = ({ image, key }) => {
       </div>
 
       {createPortal(
-        <ReactModal
-          isOpen={showModal}
-          className={style.photoModalBlock}
-          onRequestClose={handleModal}
-          shouldCloseOnOverlayClick={true}
-          ariaHideApp={false}
-          style={{ overlay: { backgroundColor: 'rgba(0,0,0,0.3)' } }}
-        >
-          <IoIosClose className={style.closeButton} onClick={handleModal} />
-          <img key={key} className={style.photoModal} onClick={handleModal} src={image.urls.full} alt="photo" />
-        </ReactModal>, document.body)
+        <div className={style.generalBlockModal}>
+          <ReactModal
+            isOpen={showModal}
+            className={style.photoModalBlock}
+            onRequestClose={handleModal}
+            shouldCloseOnOverlayClick={true}
+            ariaHideApp={false}
+            style={{ overlay: { backgroundColor: 'rgba(0,0,0,0.3)' } }}
+          >
+            <IoIosClose className={style.closeButton} onClick={handleModal} />
+            <img key={key} className={style.photoModal} onClick={handleModal} src={image.urls.full} alt="photo" />
+          </ReactModal>
+        </div>, document.body)
       }
     </>
   );
