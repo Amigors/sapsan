@@ -25,7 +25,7 @@ const Searching = () => {
             const response = await axios.get(url + `${ref.current.value}`);
             setTotal(response.data.total);
             if (response.data.total_pages > 1) {
-                for (let i = 1; i <= response.data.total_pages; i++) {
+                for (let i = 1; i < response.data.total_pages; i++) {
                     const resp = await axios.get(
                         url + `${ref.current.value}` + "&page=" + `${i}`
                     );
